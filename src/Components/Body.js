@@ -6,7 +6,7 @@ const Body = () => {
   return (
     <div>
       <div className="bg-bgImage h-96 bg-cover"></div>
-      <div className="-skew-y-6 bg-body h-96" />
+      <div className="-skew-y-6 bg-body h-32" />
       <Card
         className={
           "w-2/4 py-4 px-6 bg-card left-1/4 absolute z-10 top-80 text-white text-center"

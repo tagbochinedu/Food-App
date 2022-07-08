@@ -9,7 +9,7 @@ function Menu() {
     console.log(menu);
   }, [menu]);
   return (
-    <Card className="w-3/5 bg-white p-6">
+    <Card className="w-3/5 bg-white p-6 mx-auto my-16">
       <ul>
         {menu.map((food) => {
           return (
