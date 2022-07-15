@@ -4,7 +4,7 @@ import Card from "./UI/Card";
 import Button from "./UI/Button";
 
 const Backdrop = () => {
-  const { setCart, setModal } = useAuth();
+  const { setModal } = useAuth();
   return (
     <div
       className="h-screen backdrop-blur-lg top-0 w-full blur-3xl absolute z-20 bg-crbg"
