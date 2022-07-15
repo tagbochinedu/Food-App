@@ -7,13 +7,30 @@ const MenuList = (props) => {
   const [amount, setAmount] = useState(1);
 
   const changeHandler = (e) => {
-    console.log(amount);
     setAmount(e.target.value);
   };
 
   const clickHandler = (e) => {
     e.preventDefault();
-    const cartItem = { title: props.title, price: props.price, totalPrice: props.price * amount, amount };
+    for (let i = 0; i < cart.length; i++) {
+      if (props.title === cart[i].title) {
+        const newAmount = Number(cart[i].amount) + Number(props.amount);
+        const newCartItem = {
+          title: cart[i].title,
+          price: cart[i].price,
+          amount: newAmount,
+          totalPrice: cart[i].price * amount,
+        };
+        setCart((prev)=>[...prev, cart[i]=newCartItem]);
+        return console.log(cart);
+      }
+    }
+    const cartItem = {
+      title: props.title,
+      price: props.price,
+      totalPrice: props.price * amount,
+      amount,
+    };
     setCart((prev) => [...prev, cartItem]);
     console.log(cart);
     setAmount(1);

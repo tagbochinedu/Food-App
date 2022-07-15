@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useState } from "react";
 
 const PayOutContext = React.createContext();
 
@@ -8,11 +8,9 @@ export function useAuth() {
 
 export function AuthProvider({ children }) {
   const [cart, setCart] = useState([]);
-  useEffect(() => {
-    console.log(cart);
-  }, [cart]);
+  const [modal, setModal] = useState(false)
 
-  const value = { setCart, cart };
+  const value = { setCart, cart, modal, setModal  };
   return (
     <PayOutContext.Provider value={value}>{children}</PayOutContext.Provider>
   );

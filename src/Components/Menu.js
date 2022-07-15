@@ -1,13 +1,10 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Card from "./UI/Card";
 import MenuList from "./MenuList";
 import { MENU } from "../App";
 
 function Menu() {
-  const [menu, setMenu] = useState(MENU);
-  useEffect(() => {
-    console.log(menu);
-  }, [menu]);
+  const [menu] = useState(MENU);
   return (
     <Card className="w-3/5 bg-white p-6 mx-auto my-16">
       <ul>

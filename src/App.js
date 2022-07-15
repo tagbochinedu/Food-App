@@ -1,5 +1,7 @@
 import Body from "./Components/Body";
 import Header from "./Components/Header";
+import PayoutModal from "./Components/PayoutModal";
+import { useAuth } from "./Components/Context/PayoutContext";
 
 export const MENU = [
   {
@@ -25,8 +27,10 @@ export const MENU = [
 ];
 
 function App() {
+  const { modal } = useAuth();
   return (
     <div className="bg-body">
+      {modal && <PayoutModal />}
       <Header />
       <Body />
     </div>
