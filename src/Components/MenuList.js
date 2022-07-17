@@ -12,39 +12,40 @@ const MenuList = (props) => {
 
   const clickHandler = (e) => {
     e.preventDefault();
-    for (let i = 0; i < cart.length; i++) {
-      if (props.title === cart[i].title) {
-        const newAmount = Number(cart[i].amount) + Number(props.amount);
-        const newCartItem = {
-          title: cart[i].title,
-          price: cart[i].price,
-          amount: newAmount,
-          totalPrice: cart[i].price * amount,
-        };
-        setCart((prev)=>[...prev, cart[i]=newCartItem]);
-        return console.log(cart);
-      }
+
+    const filter = cart.filter((food) => {
+      return props.title === food.title;
+    });
+    console.log(filter);
+
+    if (filter.length !== 0) {
+      filter[0].amount += parseInt(amount);
+      filter[0].totalPrice += props.price * amount;
+      console.log(filter);
+      return setCart((prev) => [...prev]);
+    } else {
+      const cartItem = {
+        title: props.title,
+        price: parseInt(props.price),
+        totalPrice: props.price * amount,
+        amount: parseInt(amount),
+      };
+      setCart((prev) => [...prev, cartItem]);
+      console.log(cart);
     }
-    const cartItem = {
-      title: props.title,
-      price: props.price,
-      totalPrice: props.price * amount,
-      amount,
-    };
-    setCart((prev) => [...prev, cartItem]);
-    console.log(cart);
+
     setAmount(1);
   };
 
   return (
-    <div className="flex justify-between border-b border-body py-2">
-      <div className=" max-w-xs">
+    <div className="md:flex justify-between border-b border-body py-4 md:py-2">
+      <div className=" max-w-xs text-center md:text-left mx-auto md:mx-0">
         <h1 className="font-bold">{props.title}</h1>
         <p className="italic">{props.desc}</p>
         <p className="text-bg font-semibold text-sm">N{props.price}</p>
       </div>
       <form className="flex flex-col justify-between">
-        <div>
+        <div className="text-right my-2">
           <label className="mx-2 fonst-semibold text-sm">Amount</label>
           <input
             type="number"

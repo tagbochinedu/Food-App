@@ -6,10 +6,10 @@ const Body = () => {
   return (
     <div>
       <div className="bg-bgImage h-96 bg-cover"></div>
-      <div className="-skew-y-6 bg-body h-32" />
+      <div className="md:-skew-y-6 bg-body h-32" />
       <Card
         className={
-          "w-2/4 py-4 px-6 bg-card left-1/4 absolute z-10 top-80 text-white text-center"
+          "w-5/6 md:w-2/4 py-2 md:py-4 md:px-6 px-4 bg-card left-8  md:left-1/4 absolute z-10 top-80 text-white text-center"
         }
       >
         <h1 className="text-2xl font-bold">Delicious Food, Delivered To You</h1>
