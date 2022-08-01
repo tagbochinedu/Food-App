@@ -11,37 +11,28 @@ export function AuthProvider({ children }) {
   const [modal, setModal] = useState(false);
   const [modalText, setModalText] = useState('No items have been added to the cart')
   const addHandler = (food) => {
-    let arr = cart;
     const filter = cart.filter((meal) => {
       return food.title === meal.title;
     });
-    const index = cart.findIndex((meal) => {
-      return meal.title === food.title;
-    });
-    filter[0].amount += 1;
-    filter[0].totalPrice = food.price * food.amount;
-    arr[index] = filter[0];
-    setCart(arr);
-    console.log(arr, index);
+    
+      filter[0].amount += 1;
+      filter[0].totalPrice += filter[0].price
+      console.log(filter);
+      return setCart((prev) => [...prev]);
+   
   };
   const reduceHandler = (food) => {
-    let arr = cart;
     const filter = cart.filter((meal) => {
       return food.title === meal.title;
-    });
-    const index = cart.findIndex((meal) => {
-      return meal.title === food.title;
     });
     if (filter[0].amount > 1) {
       filter[0].amount -= 1;
-      filter[0].totalPrice = food.price * food.amount;
-      arr[index] = filter[0];
-      setCart(arr);
+      filter[0].totalPrice -= filter[0].price
+      return setCart((prev) => [...prev]);
     } else {
-      const newArr = arr.filter((meal) => {
+      const newArr = cart.filter((meal) => {
         return meal !== filter[0];
       });
-      console.log(filter, newArr);
       setCart(newArr);
     }
   };

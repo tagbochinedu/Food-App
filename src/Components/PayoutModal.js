@@ -9,7 +9,7 @@ const Backdrop = () => {
   const { setModal, setModalText } = useAuth();
   return (
     <div
-      className="h-screen backdrop-blur-lg top-0 w-full blur-3xl absolute z-20 bg-crbg"
+      className="h-screen backdrop-blur-lg top-0 w-full blur-3xl fixed z-20 bg-crbg"
       onClick={() => {
         setModal(false);
         setModalText('No items have been added to the cart')
@@ -43,7 +43,7 @@ const ModalOverlay = () => {
 
   return (
     <Card
-      className="top-1/4 absolute w-5/6 md:w-2/4 left-8 md:left-1/4 z-30 px-4 py-6 animate__animated animate__fadeInDown bg-white"
+      className="top-1/4 fixed w-5/6 md:w-2/4 left-8 md:left-1/4 z-30 px-4 py-6 animate__animated animate__fadeInDown bg-white"
       onClick={() => {
         setModal(false);
       }}
